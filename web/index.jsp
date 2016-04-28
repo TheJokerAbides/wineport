@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Joker
+  User: WJS
   Date: 4/26/2016
   Time: 11:09 AM
   To change this template use File | Settings | File Templates.
@@ -15,34 +15,11 @@
             background-repeat: no-repeat;
             background-position: 80%;
         }
-
-        h1 {
-            font: 40px Vivaldi, sans-serif;
-        }
-
-        .footer {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 1rem;
-            background-color: #efefef;
-            text-align: center;
-            font: 20px Vivaldi, sans-serif;
-        }
-
-        .header {
-            background-color: #efefef;
-
-        }
     </style>
-
     <link rel="stylesheet" href="/css/winemenu.css">
-
 </head>
+
 <body>
-
-
 <script>
     // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
@@ -120,40 +97,35 @@
         FB.api('/me', function (response) {
             console.log('Successful login for: ' + response.name);
             document.getElementById('status').innerHTML =
-                    'Thanks for logging in, ' + response.name + '!';
+                    'Thanks for logging in, ' + response.name + '!' + ' and your ID is:' + response.id;
         });
     }
 </script>
 
 
-<div class="header">
+<!-- BEGIN ACTUAL BODY -->
+<div id="pageHeader">
     <h1>The Wine Port</h1>
-
+</div>
+<div>
     <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#news">My Wine</a></li>
-        <li><a href="#news">Reports</a></li>
-      <%--  <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Dropdown</a>
-            <div class="dropdown-content" id="myDropdown">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </li>--%>
+        <li><a id="active" href="../index.jsp">Home</a></li>
+        <li><a href="/wineport/news.jsp">News</a></li>
+        <li><a href="/wineport/reviews.jsp">Reviews</a></li>
+        <li><a href="/wineport/mywine.jsp">My Wine</a></li>
     </ul>
-
-    <%--$END$--%>
 </div>
 
 
 <center>
-    <div style="align-content: center; background-color: #efefef; width: 650px; border-radius: 25px;padding: 20px; background: rgba(0,0,0,0.3)">
-        Welcome to the Wine Port. Here you can read reviews, read wine related news and most importantly you can
-        catalog, modify and rate your own wine lists!<p></p>
-        The Wine Port uses Facebook login solely so you can view your own personalized wine catalog. We will never use
-        any information from Facebook nor will we EVER post anything on your wall.
+    <div style="border-top: 20px">
+        <div style="align-content: center; background-color: #efefef; width: 650px; border-radius: 25px;padding: 20px; background: rgba(0,0,0,0.3)">
+            Welcome to the Wine Port. Here you can read reviews, read wine related news and most importantly you can
+            catalog, modify and rate your own wine lists!<p></p>
+            The Wine Port uses Facebook login solely so you can view your own personalized wine catalog. We will never
+            use
+            any information from Facebook nor will we EVER post anything on your wall.
+        </div>
     </div>
 </center>
 
@@ -171,7 +143,7 @@
 </center>
 
 
-<div class="footer">Developed By <strong>Joker's</strong> Dank Designs</div>
+<div id="footer">Developed By <strong>Joker's</strong> Dank Designs</div>
 
 </body>
 </html>
